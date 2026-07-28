@@ -44,6 +44,10 @@ export async function fetchCatalog(filters: CatalogFilters = {}): Promise<Produc
   return request<Product[]>(`/api/v1/products${suffix}`);
 }
 
+export async function fetchProductById(productId: string): Promise<Product> {
+  return request<Product>(`/api/v1/products/${productId}`);
+}
+
 export async function createOrder(payload: {
   customer_name: string;
   customer_email: string;

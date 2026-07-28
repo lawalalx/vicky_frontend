@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { useMemo, useState } from "react";
-import { CheckCircle, Minus, MessageCircle, Plus, ShoppingBag, X } from "lucide-react";
+import { CheckCircle, Minus, MessageCircle, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 
 import { createOrder } from "../lib/api";
 import { formatMoney } from "../lib/catalog";
@@ -178,9 +178,11 @@ export function CartPanel({
                   <button
                     type="button"
                     onClick={() => onRemove(item.product.id)}
-                    className="shrink-0 rounded-full p-1 text-slate-300 transition hover:bg-rose-50 hover:text-rose-500"
+                    className="inline-flex shrink-0 items-center gap-1 rounded-full border border-rose-100 bg-rose-50 px-2.5 py-1 text-[11px] font-semibold text-rose-600 transition hover:bg-rose-100"
+                    aria-label={`Remove ${item.product.name} from cart`}
                   >
-                    <X className="h-3.5 w-3.5" />
+                    <Trash2 className="h-3 w-3" />
+                    Remove
                   </button>
                 </div>
                 <p className="mt-1 text-sm font-bold text-brand-rose">
